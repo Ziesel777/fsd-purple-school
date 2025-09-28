@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+
+		"lib": ["DOM", "ES2020", "ESNext"],
+		"jsx": "preserve",
+		"target": "ES2020",
+		"noEmit": true,
+		"skipLibCheck": true,
+		"jsxImportSource": "vue",
+		"useDefineForClassFields": true,
+		"experimentalDecorators": true,
+
+		/* modules */
+		"module": "ESNext",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "Bundler",
+		"allowImportingTsExtensions": true,
+
+		/* type checking */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"allowJs": true,
+		"strictNullChecks": false, // являются ли null и undefined допустимыми зна­чениями для каждого типа
+		"noImplicitAny": false, // проверка на any
+		// "checkJs": false
+	},
+	"vueCompilerOptions": {
+		"plugins": [
+			"@vue/language-plugin-pug"
+		]
+	},
+	"include": ["src"],
+}
