@@ -1,0 +1,108 @@
+// px to rem
+@function rem($pixels, $context: $mainFontSize) {
+	@if (unitless($pixels)) {
+		$pixels: $pixels * 1px;
+	}
+
+	@if (unitless($context)) {
+		$context: $context * 1px;
+	}
+
+	@return $pixels / $context * 1rem;
+}
+
+@function kfs($width) {
+	$width: $width * 1px;
+	@return ($width/$desktopWidth);
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin max-width($width) {
+	@media (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin min-width($width) {
+	@media (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin max-height($height) {
+	@media (max-height: $height) {
+		@content;
+	}
+}
+
+@mixin responsive-box($height) {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		padding-top: $height;
+	}
+}
+
+@mixin bg-img-center {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@mixin flex-ctr {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// обрезать контент по количеству строк в блоке
+@mixin line-clamp($lineCount: 2){
+	display: -webkit-box;
+	-webkit-line-clamp: $lineCount; // количество строк
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+// обрезать строку в три точки по ширине
+@mixin text-overflow-dots{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin scrollbar($size: 8px, $width: $size, $height: $size, $colorTrack: $body-background, $colorButton: #c0c0c0, $margin: 0px) {
+	&::-webkit-scrollbar {
+		width: $width;
+		height: $height;
+	}
+
+	&::-webkit-scrollbar-button {
+		// background-image: url('');
+		background-repeat: no-repeat;
+		width: 4px;
+		height: 0px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $colorTrack;
+		margin: $margin 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $size * 0.6;
+		background-color: $colorButton;
+	}
+
+	&::-webkit-resizer {
+		// background-image: url('');
+		background-repeat: no-repeat;
+		width: 3px;
+		height: 0px;
+	}
+}

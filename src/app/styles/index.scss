@@ -1,0 +1,13 @@
+@import './utils/reset';
+
+body {
+	font-family: $mainFont;
+	font-size: $mainFontSize;
+	font-weight: $mainFontWeight;
+	line-height: $mainLineHeight;
+	color: $mainFontColor;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-optical-sizing: auto;
+}
