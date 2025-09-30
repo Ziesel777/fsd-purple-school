@@ -4,7 +4,7 @@ export const routes: RouteRecordRaw[] = [
 	{
 		path: '/',
 		name: 'main',
-		component: () => import('@/app/pages/main-page'),
+		component: () => import('@/pages/home'),
 	},
 	{
 		path: '/:pathMatch(.*)*',
