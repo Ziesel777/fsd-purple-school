@@ -1,9 +1,10 @@
-import { defineConfig, ConsoleType } from '@rsbuild/core';
+import { defineConfig, ConsoleType, loadEnv } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 import { pluginPug } from "@rsbuild/plugin-pug";
 import { pluginSass } from '@rsbuild/plugin-sass';
 
 
+const envVars = loadEnv({ mode: 'front' });
 const devMode = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
@@ -43,4 +44,9 @@ export default defineConfig({
 			},
 		}),
 	],
+	source:{
+		define: {
+			ENV: JSON.stringify(envVars.parsed),
+		}
+	},
 });
