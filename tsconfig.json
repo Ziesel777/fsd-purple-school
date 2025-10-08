@@ -2,7 +2,10 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@/app": ["./src/app/*"],
+			"@/pages": ["./src/pages/*"],
+			"@/shared": ["./src/shared/*"]
 		},
 
 		"lib": ["DOM", "ES2020", "ESNext"],
